@@ -1,53 +1,116 @@
-const taskInput = document.getElementById("taskInput");
-const taskList = document.getElementById("taskList");
-const taskCount = document.getElementById("taskCount");
-
-function addTask() {
-    const taskText = taskInput.value.trim();
-
-    if (taskText === "") {
-        alert("Please enter a task!");
-        return;
-    }
-
-    const li = document.createElement("li");
-
-    const span = document.createElement("span");
-    span.textContent = taskText;
-
-    span.addEventListener("click", function () {
-        li.classList.toggle("completed");
-        updateTaskCount();
-    });
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.classList.add("delete-btn");
-
-    deleteButton.addEventListener("click", function () {
-        li.remove();
-        updateTaskCount();
-    });
-
-    li.appendChild(span);
-    li.appendChild(deleteButton);
-
-    taskList.appendChild(li);
-
-    taskInput.value = "";
-
-    updateTaskCount();
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-function updateTaskCount() {
-    const tasks = document.querySelectorAll("#taskList li");
-    const remainingTasks = document.querySelectorAll("#taskList li:not(.completed)");
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 
-    taskCount.textContent = `Tasks left: ${remainingTasks.length}`;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-taskInput.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-        addTask();
-    }
-});
+.container {
+    background-color: white;
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+
+    margin-bottom: 25px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 18px;
+
+    background-color: #667eea;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5568d8;
+}
+
+ul {
+    list-style: none;
+
+    margin-top: 20px;
+}
+
+li {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #f5f5f5;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+}
+
+li.completed span {
+    text-decoration: line-through;
+
+    color: gray;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+
+    padding: 7px 10px;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+#taskCount {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #555;
+}
