@@ -7,25 +7,32 @@
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
+
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .container {
-    background: white;
+    background-color: white;
+
     width: 90%;
     max-width: 500px;
+
     padding: 30px;
+
     border-radius: 15px;
+
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 25px;
     color: #333;
+
+    margin-bottom: 25px;
 }
 
 .input-area {
@@ -35,56 +42,75 @@ h1 {
 
 input {
     flex: 1;
+
     padding: 12px;
+
     border: 1px solid #ccc;
+
     border-radius: 8px;
+
     font-size: 16px;
 }
 
 button {
     padding: 12px 18px;
-    background: #667eea;
+
+    background-color: #667eea;
+
     color: white;
+
     border: none;
+
     border-radius: 8px;
+
     cursor: pointer;
 }
 
 button:hover {
-    background: #5568d8;
+    background-color: #5568d8;
 }
 
 ul {
     list-style: none;
+
     margin-top: 20px;
 }
 
 li {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
-    background: #f5f5f5;
+
+    background-color: #f5f5f5;
+
     padding: 12px;
+
     margin-bottom: 10px;
+
     border-radius: 8px;
 }
 
 li.completed span {
     text-decoration: line-through;
+
     color: gray;
 }
 
 .delete-btn {
-    background: #e74c3c;
+    background-color: #e74c3c;
+
     padding: 7px 10px;
 }
 
 .delete-btn:hover {
-    background: #c0392b;
+    background-color: #c0392b;
 }
 
 #taskCount {
     margin-top: 20px;
+
     text-align: center;
+
     color: #555;
 }
